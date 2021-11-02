@@ -15,15 +15,15 @@ It is a simple combination of various linters, written in `bash`, to help valida
 ## Table of Contents
 
 - [Super-Linter](#super-linter)
-  - [Table of Contents](#table-of-contents)
-  - [How it Works](#how-it-works)
-  - [Supported Linters](#supported-linters)
+  - [Table of contents](#table-of-contents)
+  - [How it works](#how-it-works)
+  - [Supported linters](#supported-linters)
   - [How to use](#how-to-use)
-    - [Example connecting GitHub Action Workflow](#example-connecting-github-action-workflow)
+    - [Example connecting GitHub Action workflow](#example-connecting-github-action-workflow)
     - [Add Super-Linter badge in your repository README](#add-super-linter-badge-in-your-repository-readme)
     - [Images](#images)
-      - [Standard Image](#standard-image)
-      - [Slim Image](#slim-image)
+      - [Standard image](#standard-image)
+      - [Slim image](#slim-image)
   - [Environment variables](#environment-variables)
     - [Template rules files](#template-rules-files)
     - [Using your own rules files](#using-your-own-rules-files)
@@ -35,19 +35,19 @@ It is a simple combination of various linters, written in `bash`, to help valida
     - [Azure](#azure)
     - [GitLab](#gitlab)
     - [Visual Studio Code](#visual-studio-code)
-    - [SSL Certs](#ssl-certs)
-  - [Community Activity](#community-activity)
+    - [SSL certs](#ssl-certs)
+  - [Community activity](#community-activity)
   - [Limitations](#limitations)
   - [How to contribute](#how-to-contribute)
     - [License](#license)
 
-## How it Works
+## How it works
 
 The super-linter finds issues and reports them to the console output. Fixes are suggested in the console output but not automatically fixed, and a status check will show up as failed on the pull request.
 
 The design of the **Super-Linter** is currently to allow linting to occur in **GitHub Actions** as a part of continuous integration occurring on pull requests as the commits get pushed. It works best when commits are being pushed early and often to a branch with an open or draft pull request. There is some desire to move this closer to local development for faster feedback on linting errors but this is not yet supported.
 
-## Supported Linters
+## Supported linters
 
 Developers on **GitHub** can call the **GitHub Action** to lint their codebase with the following list of linters:
 
@@ -117,7 +117,7 @@ To use this **GitHub** Action you will need to complete the following:
 
 **NOTE:** If you pass the _Environment_ variable `GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` in your workflow, then the **GitHub Super-Linter** will mark the status of each individual linter run in the Checks section of a pull request. Without this you will only see the overall status of the full run. There is no need to set the **GitHub** Secret as it is automatically set by GitHub, it only needs to be passed to the action.
 
-### Example connecting GitHub Action Workflow
+### Example connecting GitHub Action workflow
 
 In your repository you should have a `.github/workflows` folder with **GitHub** Action similar to below:
 
@@ -213,7 +213,7 @@ The available images:
 - `github/super-linter:v4`
 - `github/super-linter:slim-v4`
 
-#### Standard Image
+#### Standard image
 
 The standard `github/super-linter:v4` comes with all supported linters.
 Example usage:
@@ -230,7 +230,7 @@ Example usage:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-#### Slim Image
+#### Slim image
 
 The slim `github/super-linter:slim-v4` comes with all supported linters but removes the following:
 
@@ -480,7 +480,7 @@ Once found, it will load the certificate contents to a file, and to the trust st
     SSL_CERT_SECRET: ${{ secrets.ROOT_CA }}
 ```
 
-## Community Activity
+## Community activity
 
 ![super-linter stats](https://cauldron.io/project/2083/stats.svg)
 
