@@ -116,7 +116,7 @@ RUN pip3 install --no-cache-dir pipenv \
     && npm config set package-lock false \
     && npm config set loglevel error \
     && npm --no-cache install \
-    && npm audit fix \
+    && npm audit fix --audit-level=critical \
 ##############################
 # Installs ruby dependencies #
 ##############################
@@ -352,7 +352,7 @@ RUN wget --tries=5 -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sger
     && wget -q --tries=5 -O phive.phar https://phar.io/releases/phive.phar \
     && wget -q --tries=5 -O phive.phar.asc https://phar.io/releases/phive.phar.asc \
     && PHAR_KEY_ID="0x9D8A98B29B2D5D79" \
-    && ( gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$PHAR_KEY_ID" \
+    && ( gpg --keyserver ha.pool.sks-keyservers.net:80 --recv-keys "$PHAR_KEY_ID" \
     || gpg --keyserver pgp.mit.edu --recv-keys "$PHAR_KEY_ID" \
     || gpg --keyserver keyserver.pgp.com --recv-keys "$PHAR_KEY_ID" ) \
     && gpg --verify phive.phar.asc phive.phar \
@@ -361,7 +361,7 @@ RUN wget --tries=5 -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sger
     && rm phive.phar.asc \
     && phive --no-progress install --trust-gpg-keys \
     31C7E470E2138192,CF1A108D0E7AE720,8A03EA3B385DBAA1,12CE0F1D262429A5 \
-    --target /usr/bin phpstan@^0.12.64 psalm@^3.18.2 phpcs@^3.5.8
+    --target /usr/bin phpstan@^1.1.1 psalm@^4.12.0 phpcs@^3.6.1
 
 #################################
 # Copy the libraries into image #
